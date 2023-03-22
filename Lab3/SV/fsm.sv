@@ -1,40 +1,53 @@
-module FSM (clk, reset, a, y);
+module FSM (clk, reset, left, right, [5:0]Lg);
 
    input logic  clk;
    input logic  reset;
-   input logic 	a;
+   input logic 	left;
+   input logic  right;
    
-   output logic y;
-
-   typedef enum 	logic [1:0] {S0, S1, S2} statetype;
+   output logic [5:0]Lg;
+   typedef enum 	logic [2:0] {L0, L!, L2, L3} statetype;
+   typedef enum 	logic [2:0] {R0, R1, R2, R3} statetype;
    statetype state, nextstate;
    
    // state register
    always_ff @(posedge clk, posedge reset)
-     if (reset) state <= S0;
+     if (reset) state <= L0;
      else       state <= nextstate;
    
    // next state logic
    always_comb
      case (state)
-       S0: begin
-	  y <= 1'b0;	  
-	  if (a) nextstate <= S0;
-	  else   nextstate <= S1;
+       L0: begin
+    
+	  if (left) nextstate <= L0;
+	  else   nextstate <= ;
        end
-       S1: begin
-	  y <= 1'b0;	  	  
-	  if (a) nextstate <= S2;
-	  else   nextstate <= S1;
+  
+       L1: begin
+    LC = 1'b0;
+    LB = 1'b0;
+    LA = 1'b1;	
+	  if (left) nextstate <= L1;
+	  else   nextstate <= L2;
        end
-       S2: begin
-	  y <= 1'b1;	  	  
-	  if (a) nextstate <= S2;
-	  else   nextstate <= S0;
+
+       L2: begin
+	  LC = 1'b0;
+    LB = 1'b1;
+    LA = 1'b1;	  	  
+	  if (left) nextstate <= L2;
+	  else   nextstate <= L3;
        end
+        L3: begin
+    LC = 1'b1;
+    LB = 1'b1;
+    LA = 1'b1;	
+	  if (left) nextstate <= L3;
+	  else   nextstate <= L0;
+        end
        default: begin
-	  y <= 1'b0;	  	  
-	  nextstate <= S0;
+	  nextstate <= L0;
        end
      endcase
    
