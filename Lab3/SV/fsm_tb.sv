@@ -37,12 +37,25 @@ module stimulus ();
    
    initial 
      begin      
-	#0   reset = 1'b1;
+	#0   reset = 1'b1; // test left blink signal first by running reset, then off, then on, then quickly on + reset to make sure it isn't quitting in the middle of a cycle.
 	#41  reset = 1'b0;	
-	#0   a = 1'b0;
-	#20  a = 1'b1;
-	#20  a = 1'b0;
-     #20
+	#0   left = 1'b0;
+	#20  left = 1'b1;
+	#20  left = 1'b0;
+     #5   left = 1'b1;
+     #10  left = 1'b0;
+     #20  reset = 1'b0;
+
+     //Same test bank as above, but for right.
+     #0   reset = 1'b1; 
+	#41  reset = 1'b0;	
+	#0   right = 1'b0;
+	#20  right = 1'b1;
+	#20  right = 1'b0;
+     #5   right = 1'b1;
+     #10  right = 1'b0;
+     #20  reset = 1'b0;
+
      end
 
 endmodule // FSM_tb
