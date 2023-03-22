@@ -1,9 +1,10 @@
-module FSM (clk, reset, left, right, [5:0]Lg);
+module FSM (clk, reset, left, right, hazards, [5:0]Lg);
 
    input logic  clk;
    input logic  reset;
    input logic 	left;
    input logic  right;
+   input logic  [0] hazards;
    
    output logic [5:0]Lg;
    typedef enum 	logic [2:0] {L0, L!, L2, L3} statetype;
@@ -16,6 +17,7 @@ module FSM (clk, reset, left, right, [5:0]Lg);
      else       state <= nextstate;
    
    // next state logic
+
    always_comb
      case (state)
        L0: begin
