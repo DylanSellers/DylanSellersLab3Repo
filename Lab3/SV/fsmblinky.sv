@@ -1,4 +1,4 @@
-module FSM (clk, reset, left, right, [5:0]Lg);
+module FSM (clk, reset, left, right, [5:0]lg);
 //FSM with blinking hazard lights
  // inputs
    input logic  clk;
@@ -6,7 +6,7 @@ module FSM (clk, reset, left, right, [5:0]Lg);
    input logic 	left;
    input logic  right;
  // output lights
-   output logic [5:0]Lg;
+   output logic [5:0]lg;
  // list of states
    typedef enum 	logic [3:0] {S0, L1, L2, L3, R1, R2, R3, W1, W2, W3} statetype;
    statetype state, nextstate;
@@ -22,10 +22,11 @@ module FSM (clk, reset, left, right, [5:0]Lg);
 //initial state
       S0: begin
     //set all lights to off
-        lg[5:0] = 6'b000000;
-        if(left) nextstate = L1;        //left pressed -> start left sequence
-        if(right) nextstate = R1;         //right pressed -> start right sequence
+        lg[5:0] <= 6'b000000;
         if(left & right) nextstate = W1;    //left and right pressed -> start hazard sequence
+        else if(left) nextstate <= L1;        //left pressed -> start left sequence
+        else if(right) nextstate <= R1;         //right pressed -> start right sequence
+        else nextstate <= S0;
       end
 //left sequence
       L1: begin
