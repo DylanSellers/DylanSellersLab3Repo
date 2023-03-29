@@ -95,3 +95,5 @@ do fsm.do
 # C:/modeltech64_2021.3/win64/vlog failed.
 #     while executing
 # "vlog fsm.sv fsm_tb.sv"
+# End time: 17:11:04 on Mar 29,2023, Elapsed time: 0:06:39
+# Errors: 2, Warnings: 2
