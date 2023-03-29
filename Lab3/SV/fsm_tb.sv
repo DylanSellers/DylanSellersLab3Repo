@@ -11,7 +11,7 @@ module stimulus ();
    integer desc3;
    
    // Instantiate DUT
-   FSM dut (clk, reset, left, right, hazards, lightout);   
+   FSM dut (clk, reset, left, right, lightout);   
    
    // Setup the clock to toggle every 1 time units 
    initial 
@@ -55,6 +55,20 @@ module stimulus ();
      #5   right = 1'b1;
      #10  right = 1'b0;
      #20  reset = 1'b0;
+
+//Hazards test bank
+     #0   reset = 1'b1; 
+	#41  reset = 1'b0;	
+	#0   right = 1'b0;
+     #0   left  = 1'b0;
+	#20  right = 1'b1;
+     #0   left  = 1'b1;
+	#20  right = 1'b0;
+     #0   left  = 1'b0;
+     #20  reset = 1'b0;
+     #20  right = 1'b1;
+     #0   left  = 1'b1;
+     #0   reset = 1'b1;
 
      end
 
