@@ -13,7 +13,9 @@ module FSM (clk, reset, left, right, lg);
    
    // state register
    always_ff @(posedge clk, posedge reset)
-     if (reset) state <= S0;
+     if (reset) begin
+      state <= S0;
+     end
      else       state <= nextstate;
    
    // next state logic
@@ -22,10 +24,11 @@ module FSM (clk, reset, left, right, lg);
 //initial state
       S0: begin
     //set all lights to off
-        lg[5:0] = 6'b000000;
-        if(left) nextstate = L1;        //left pressed -> start left sequence
-        if(right) nextstate = R1;         //right pressed -> start right sequence
+        lg[5:0] <= 6'b000000;
         if(left & right) nextstate = W1;    //left and right pressed -> start hazard sequence
+        else if(left) nextstate <= L1;        //left pressed -> start left sequence
+        else if(right) nextstate <= R1;         //right pressed -> start right sequence
+        else nextstate <= S0;
       end
 //left sequence
       L1: begin
