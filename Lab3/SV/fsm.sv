@@ -1,4 +1,4 @@
-module FSM (clk, reset, left, right, [5:0]Lg);
+module FSM (clk, reset, left, right, lg);
 //FSM with Thunderbird hazard lights
  // inputs
    input logic  clk;
@@ -6,7 +6,7 @@ module FSM (clk, reset, left, right, [5:0]Lg);
    input logic 	left;
    input logic  right;
  // output lights
-   output logic [5:0]Lg;
+   output logic [5:0]lg;
  // list of states
    typedef enum 	logic [3:0] {S0, L1, L2, L3, R1, R2, R3, W1, W2, W3} statetype;
    statetype state, nextstate;

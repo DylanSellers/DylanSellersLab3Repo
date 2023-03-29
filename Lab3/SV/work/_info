@@ -1,67 +1,107 @@
 m255
 K4
 z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+!s11f vlog 2021.3 2021.07, Jul 13 2021
 13
 !s112 1.1
 !i10d 8192
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/media/disk2/Dropbox (VLSIARCH - OSU)/ecen 3233 F21/Labs_F21/Lab3/Lab3/fsm
+Z1 dC:/Users/dk805/OneDrive/Documents/GitHub/DylanSellersLab3Repo/Lab3/SV
 T_opt
-Z1 !s110 1634053591
-V=N6OImSC;:idMJf6Z8Od92
-04 2 4 work tb fast 0
-=1-04d4c455214a-6165add7-be1e4-1a56cb
-o-quiet -auto_acc_if_foreign -work work +acc
-Z2 tCvgOpt 0
+!s110 1680125195
+VQ36WICXhEdY`9HDlWnZbL0
+Z2 04 8 4 work stimulus fast 0
+=1-d8bbc1a7e5ba-6424ad0b-54-18f4
+Z3 !s124 OEM100
+Z4 o-quiet -auto_acc_if_foreign -work work +acc
+Z5 tCvgOpt 0
 n@_opt
-OL;O;10.7e;67
-vclk_div
-Z3 DXx6 sv_std 3 std 0 22 d=_JfHTnXCN[H5FjiaJJc0
+Z6 OL;O;2021.3;73
 R1
-!i10b 1
-!s100 G0W@kMdKY7A0SXdVd^k4b3
-IUjElP`E:C:Lnmb0?P`9le0
-Z4 VDg1SIo80bB@j0V0VzS_@n1
-!s105 clk_div_sv_unit
-S1
-R0
-Z5 w1634051013
-8clk_div.sv
-Fclk_div.sv
-L0 1
-Z6 OL;L;10.7e;67
-r1
-!s85 0
-31
-Z7 !s108 1634053591.000000
-Z8 !s107 tb.sv|clk_div.sv|
-Z9 !s90 -reportprogress|300|clk_div.sv|tb.sv|
-!i113 0
-Z10 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+T_opt1
+!s110 1680125333
+VC?bA`;7W:60HNdC4i:Uoh1
 R2
-vtb
+=1-d8bbc1a7e5ba-6424ad95-71-181c
 R3
-R1
-!i10b 1
-!s100 c1lo=F7Pl]K_cad_[@L<X3
-I?>N`i:MFI2;c`?Fh7eBUi1
 R4
-!s105 tb_sv_unit
-S1
-R0
 R5
-8tb.sv
-Ftb.sv
-L0 2
+n@_opt1
 R6
+R1
+T_opt2
+!s110 1680125533
+ViKP92OTYl6dl;g2U<m_oI1
+R2
+=1-d8bbc1a7e5ba-6424ae5d-29b-5554
+R3
+R4
+R5
+n@_opt2
+R6
+R1
+T_opt3
+!s110 1680125637
+VAEVhaKFom]UASYz4GGm`M2
+R2
+=1-d8bbc1a7e5ba-6424aec5-23-7b30
+R3
+R4
+R5
+n@_opt3
+R6
+vFSM
+Z7 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z8 !s110 1680125636
+!i10b 1
+!s100 N=Fm[B3KEeaXP`K`I?X`;2
+IJlK>GLgecOL7?23J3i;Sz3
+S1
+R1
+w1680124912
+8fsm.sv
+Ffsm.sv
+!i122 0
+L0 1 83
+Z9 VDg1SIo80bB@j0V0VzS_@n1
+Z10 OL;L;2021.3;73
 r1
 !s85 0
 31
+Z11 !s108 1680125636.000000
+Z12 !s107 fsm_tb.sv|fsm.sv|
+Z13 !s90 fsm.sv|fsm_tb.sv|
+!i113 0
+Z14 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R5
+n@f@s@m
+vstimulus
 R7
 R8
+!i10b 1
+!s100 ]O^H4;5e2FT@4i]c0bJdZ1
+I2;D^6PB11>99=^e>kZ1>=0
+S1
+R1
+w1680125619
+8fsm_tb.sv
+Ffsm_tb.sv
+!i122 0
+L0 2 79
 R9
-!i113 0
 R10
-R2
+r1
+!s85 0
+31
+R11
+R12
+R13
+!i113 0
+R14
+R5

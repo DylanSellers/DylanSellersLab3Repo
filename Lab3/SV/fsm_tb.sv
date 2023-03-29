@@ -5,7 +5,12 @@ module stimulus ();
    logic  reset;
    logic  left;
    logic  right;
-   logic  [6:0] lightout;
+   logic  [5:0] lightout;
+   logic  a;
+   logic  y;
+
+   assign a = left;
+   assign y = right;
    
    integer handle3;
    integer desc3;
