@@ -45,12 +45,14 @@ module top_demo
   logic        smol_clk;
   logic        smollerclk;
   
+  
+   clk_div smolboi (sysclk_125mhz, btn[3], smollerclk);
   // Place Device instantiation here
-  FSM dev1(smollerclk, btn[3], sw[0],sw[1], led [5:0]);
+  FSM dev1(smollerclk, btn[3], sw[1],sw[0], led [5:0]);
 
-  clk_div(sysclk_125mhz, btn[3], smollerclk);
+ 
   // 7-segment display
- /* segment_driver driver(
+  segment_driver driver(
   .clk(smol_clk),
   .rst(btn[3]),
   .digit0(sw[3:0]),
@@ -61,7 +63,7 @@ module top_demo
   .segment_cathodes({sseg_dp, sseg_cg, sseg_cf, sseg_ce, sseg_cd, sseg_cc, sseg_cb, sseg_ca}),
   .digit_anodes(sseg_an)
   );
-*/
+
 // Register logic storing clock counts
   always@(posedge sysclk_125mhz)
   begin
