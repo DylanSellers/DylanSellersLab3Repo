@@ -1,4 +1,4 @@
-module FSM (clk, reset, left, right, [5:0]lg);
+module FSM (clk, reset, left, right, lg);
 //FSM with blinking hazard lights
  // inputs
    input logic  clk;
@@ -22,11 +22,11 @@ module FSM (clk, reset, left, right, [5:0]lg);
 //initial state
       S0: begin
     //set all lights to off
-        lg[5:0] <= 6'b000000;
-        if(left & right) nextstate = W1;    //left and right pressed -> start hazard sequence
+        lg[5:0] = 6'b000000;
+        if(left & right) nextstate <= W1;
         else if(left) nextstate <= L1;        //left pressed -> start left sequence
-        else if(right) nextstate <= R1;         //right pressed -> start right sequence
-        else nextstate <= S0;
+        else if(right) nextstate <= R1;         //right pressed -> start right sequence    //left and right pressed -> start hazard sequence
+    else nextstate<= S0;
       end
 //left sequence
       L1: begin
