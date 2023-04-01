@@ -24,11 +24,11 @@ module FSM (clk, reset, left, right, lg);
 //initial state
       S0: begin
     //set all lights to off
-        lg[5:0] <= 6'b000000;
-        if(left & right) nextstate = W1;    //left and right pressed -> start hazard sequence
-        else if(left) nextstate <= L1;        //left pressed -> start left sequence
-        else if(right) nextstate <= R1;         //right pressed -> start right sequence
-        else nextstate <= S0;
+       lg[5:0] <= 6'b000000;
+       if(left & right) nextstate <= W1;    //left and right switch on -> start hazard sequence
+       else if(left) nextstate <= L1;        //left switch on -> start left sequence
+       else if(right) nextstate <= R1;         //right switch on -> start right sequence
+        else nextstate <= S0;         //no switches on -> remain in S0
       end
 //left sequence
       L1: begin
